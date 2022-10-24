@@ -9,7 +9,7 @@
         />
         <div class="container">
        <column
-        v-for="(list, index) in boardLists"
+        v-for="(list, index) in boardList"
         :key="index"
         :listId="list.id"
         :name="list.name">
