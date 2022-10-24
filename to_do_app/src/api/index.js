@@ -5,6 +5,10 @@ const listsRef = db.ref('/lists')
 const tasksRef = db.ref('/tasks')
 
 export default {
+ getBoardsByUser (userId) {
+    const query = boardsRef.orderByChild('owner').equalTo(userId)
+    return query.once('value')
+  },
  postBoard (name, owner = 1) {
     const id = boardsRef.push().key
     const board = { id, name, owner }
