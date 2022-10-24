@@ -4,6 +4,7 @@
     v-for="(task, index) in tasks"
     :key="index"
     :class="{ completed: task.completed }">
+    {{ task.title }}
     </li>
     <input
      type="text"

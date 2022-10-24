@@ -23,8 +23,8 @@ export default {
     data () {
      return {
         tasksList: [
-            { id: 1, title: 'Comprar naranjas', completed: false},
-            { id: 2, title: 'Comprar peras', completed: false}
+            { id: '1', title: 'Comprar naranjas', completed: false},
+            { id: '2', title: 'Comprar peras', completed: false}
 
         ]
      }
