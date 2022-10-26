@@ -1,10 +1,12 @@
 <template>
   <ul>
-    <li 
-    v-for="(task, index) in tasks"
-    :key="index"
-    :class="{ completed: task.completed }">
-    {{ task.title }}
+   <li
+      v-for="(task, index) in tasks"
+      :key="index"
+      :class="{ completed: task.completed }"
+      @click="markAsCompleted({ task })"
+      @dblclick="deleteTask({ taskId: task.id })">
+        {{ task.title }}
     </li>
     <input
      type="text"
@@ -16,6 +18,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     name: 'task-list',
     props: {
@@ -29,10 +33,16 @@ export default {
      }
     },
     methods: {
-     add () {
-        //todo implementar evento
-     }
+    ...mapActions([
+      'addTask',
+      'markAsCompleted',
+      'deleteTask'
+    ]),
+    add () {
+      this.addTask({ list: this.listId, title: this.title })
+      this.title = ''
     }
+  }
 }
 </script>
 

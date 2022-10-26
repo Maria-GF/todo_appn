@@ -2,6 +2,7 @@ import * as types from './mutations-types'
 import API from '@/api'
 
 export default {
+  test(){},
     // Fetch via AJAX de los paneles del usuario
     fetchBoards ({ commit }, { user }) {
       commit(types.FETCH_BOARDS_REQUEST)

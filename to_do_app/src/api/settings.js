@@ -1,10 +1,9 @@
-export default {
-  apiKey: "AIzaSyAIOAODDF-JaFZlczKsp9fRJLiwi7nmRdM",
-  authDomain: "to-do-app-7bb6b.firebaseapp.com",
-  projectId: "to-do-app-7bb6b",
-  storageBucket: "to-do-app-7bb6b.appspot.com",
-  messagingSenderId: "990613469267",
-  appId: "1:990613469267:web:a9d9e88f7f55c145e2aea6",
-  measurementId: "G-WF3SFZCL30"
-};
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAPPOW0qijokVuiVyhJJaBshJ5b-uZg56Y",
+  authDomain: "vue3-todo-4c4b8.firebaseapp.com",
+  projectId: "vue3-todo-4c4b8",
+  storageBucket: "vue3-todo-4c4b8.appspot.com",
+  messagingSenderId: "411802328551",
+  appId: "1:411802328551:web:7034ee3db20a72775c7142"
+}

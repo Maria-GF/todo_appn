@@ -1,10 +1,13 @@
 import { db } from './firebase'
-
+import { collection, getDocs } from 'firebase/firestore'
 const boardsRef = db.ref('/boards')
 const listsRef = db.ref('/lists')
 const tasksRef = db.ref('/tasks')
 
 export default {
+   async test(){
+      return await getDocs(collection(db, "test"));
+   },
  getBoardsByUser (userId) {
     const query = boardsRef.orderByChild('owner').equalTo(userId)
     return query.once('value')

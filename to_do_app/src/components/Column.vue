@@ -12,6 +12,7 @@
 
 <script>
 import TaskList from './TaskList'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     name: 'column',
@@ -20,15 +21,22 @@ export default {
         listId: String,
         name: String
     },
-    data () {
-     return {
-        tasksList: [
-            { id: '1', title: 'Comprar naranjas', completed: false},
-            { id: '2', title: 'Comprar peras', completed: false}
-
-        ]
-     }
+    computed: {
+    ...mapGetters([
+      'getTasksFromList'
+    ]),
+    tasksList () {
+      return this.getTasksFromList(this.listId)
     }
+  },
+
+  methods: {
+    ...mapActions(['fetchTasks'])
+  },
+
+  created () {
+    this.fetchTasks({ list: this.listId })
+  }
 
 }
 </script>

@@ -2,6 +2,7 @@
     <div>
         <h3>My Board</h3>
         <div class="boards-collection"></div>
+        <span v-if="fetchingData">Loading...</span>
         <input
          type="text"
          placeholder="Add a board"
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 import BoardCard from '@/components/BoardCard'
 export default {
     name: 'home-view',
@@ -25,12 +28,29 @@ export default {
     data () {
         return {
          boardName: '',
-         boards: [
-            { id: 1, name: 'tareas' },
-            { id: 2, name: 'lista de la compra' }
-         ]
         }
+    },
+    computed: {
+    ...mapState([
+      'boards',
+      'fetchingData',
+      'error'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'fetchBoards',
+      'addBoard'
+    ]),
+    add () {
+      this.addBoard({ name: this.boardName })
+      this.boardName = ''
     }
+  },
+  created () {
+    this.fetchBoards({ user: 1 })
+  }
+
 }
 </script>
 
